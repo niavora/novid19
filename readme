@@ -1,0 +1,29 @@
+API Nodejs / Mongo
+    MONGO DB :
+        Mon compte (Niavo) sur mongodb.cloud (Il ne faut pas toucher la base pour son bon fonctionnement)
+        Modifier les données que par API
+
+    Nodejs :
+        le nom des API sont le nom des tables dans la base en miniscule
+        créer d'abord toutes les sequences des tables avant utilisation "/sequence/init"
+        Toutes les API sont crudable
+            url : 'nomTable/' method POST ===> insertion
+                    'nomTable/' method PUT ===> modification (ID de la table obligatoire)
+                    'nomTable/' method DELETE ===> suppression (ID de la table obligatoire)
+                    'nomTable/' method GET ===> recherche de toutes les données dans la table
+                    'nomTable/:IDTable' method GET ===> recherche par l'ID
+                    'nomTable/search' method POST ===> recherche selon les propriétés
+
+             Exception pour la table carteVaccination,
+                        url : 'nomTable/' method POST ===> insertion
+                              'nomTable/' method PUT ===> modification des lignes selon les propriétés données
+                                    exemple :
+                                    {
+                                        IDPersonne : int,
+                                        IDCarte : int,
+                                        IDPersonneUpdate : int, ==> nouvelle valeur
+                                        IDCarteUpdate : int ===> nouvelle valeur
+                                    }
+                              'nomTable/' method DELETE ===> suppression des lignes selon les propriétés données
+                              'nomTable/' method GET ===> recherche de toutes les données dans la table
+                              'nomTable/search' method POST ===> recherche selon les propriétés

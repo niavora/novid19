@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('novid19:server');
+var debug = require('debug')('fid:server');
 var http = require('http');
 
 /**
@@ -20,6 +20,13 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+/**
+ * Socket.io
+ */
+
+var io = app.io;
+io.attach(server);
 
 /**
  * Listen on provided port, on all network interfaces.
